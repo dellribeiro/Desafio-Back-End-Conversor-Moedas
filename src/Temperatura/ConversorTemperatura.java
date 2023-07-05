@@ -1,8 +1,7 @@
 package Temperatura;
 
 import javax.swing.*;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class ConversorTemperatura {
     public static void conversorTemperatura(){
@@ -11,9 +10,12 @@ public class ConversorTemperatura {
         char simboloEscala = obterSimboloEscala(tipoConversao);
         double valorConvertido = realizarConversaoTemperatura(temperatura, tipoConversao);
 
+        DecimalFormat df = new DecimalFormat("#.#");
+        String valorFormatado = df.format(valorConvertido);
+
         JOptionPane.showMessageDialog(
                 null,
-                "O valor da conversão é de " + valorConvertido + simboloEscala + "°");
+                "O valor da conversão é de " + valorFormatado + simboloEscala + "°");
     }
 
 
