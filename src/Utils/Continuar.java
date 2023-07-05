@@ -1,29 +1,24 @@
 package Utils;
 
-import javax.swing.*;
-
-import static Utils.Mensagens.programaConcluido;
-import static Utils.Mensagens.programaFinalizado;
+import javax.swing.JOptionPane;
 
 public class Continuar {
-    public static boolean desejaContinuar(){
-        boolean continuar;
+    public static boolean desejaContinuar() {
         int resposta = JOptionPane.showConfirmDialog(
                 null,
                 "Deseja continuar?",
                 "Continuar?",
                 JOptionPane.YES_NO_CANCEL_OPTION
         );
-        if(resposta == JOptionPane.YES_OPTION)
-            continuar = true;
-        else if(resposta == JOptionPane.NO_OPTION) {
-            programaFinalizado();
-            continuar = false;
+        switch (resposta) {
+            case JOptionPane.YES_OPTION:
+                return true;
+            case JOptionPane.NO_OPTION:
+                Mensagens.programaFinalizado();
+                return false;
+            default:
+                Mensagens.programaConcluido();
+                return false;
         }
-        else{
-            programaConcluido();
-            continuar = false;
-        }
-        return continuar;
     }
 }

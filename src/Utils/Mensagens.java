@@ -1,23 +1,21 @@
 package Utils;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class Mensagens {
-    public static void programaFinalizado(){
+    private static void mostrarMensagem(String mensagem){
         JOptionPane.showMessageDialog(
                 null,
-                "Programa Finalizado",
+                mensagem,
                 "Menu",
                 JOptionPane.INFORMATION_MESSAGE
         );
     }
+    public static void programaFinalizado(){
+        mostrarMensagem("Programa Finalizado");
+    }
 
     public static void programaConcluido(){
-        JOptionPane.showMessageDialog(
-                null,
-                "Programa Concluido",
-                "Menu",
-                JOptionPane.INFORMATION_MESSAGE
-        );
+        mostrarMensagem("Programa Concluído");
     }
 }
