@@ -1,3 +1,6 @@
+import Service.Cotacoes;
+import Service.ServicoCotacao;
+
 import javax.swing.JOptionPane;
 
 import static Moedas.ConversorDeMoedas.conversorMoedas;
@@ -12,6 +15,14 @@ public class Main {
     private static final String OPTION_TEMPERATURA = "Conversor de Temperatura";
 
     public static void main(String[] args) {
+
+        try {
+            Cotacoes cotacoes = ServicoCotacao.obterCotacoes();
+            System.out.println(cotacoes);
+        } catch (Exception e) {
+            System.out.println("Erro ao obter as cotações: " + e.getMessage());
+        }
+
         String[] conversorOptions = {OPTION_MOEDA, OPTION_TEMPERATURA};
         boolean continuar;
 
